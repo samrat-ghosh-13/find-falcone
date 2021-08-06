@@ -1,0 +1,31 @@
+.app__header {
+    background: #fff;
+    border-bottom: 1px solid #ededed;
+    color: #000;
+    height: 5rem;
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    z-index: 9999;
+}
+.app__header__contents {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    height: inherit;
+    padding: 0 16px;
+    max-width: 1240px;
+    margin: 0 auto;
+}
+.app__header__contents__right__cta {
+    background: transparent;
+    border: 1px solid #000;
+    border-radius: 4px;
+    padding: 8px;
+    color: #000;
+    cursor: pointer;
+}
+.app__header__contents__right__cta--first {
+    margin-right: 1rem;
+}

@@ -1,0 +1,22 @@
+.app__footer {
+  background: #fff;
+  border-top: 1px solid #ededed;
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  z-index: 9999;
+}
+.app__footer__contents {
+  max-width: 1240px;
+  margin: 0 auto;
+  color: #000;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 40px;
+}
+.app__footer__contents__logo {
+  margin-left: 4px;
+  margin-right: 8px;
+}
