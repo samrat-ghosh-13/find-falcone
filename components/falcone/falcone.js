@@ -2,15 +2,6 @@ import { useState, useEffect } from "react";
 import axios from "axios";
 import Image from "next/image";
 
-// Assets
-import DefaultIcon from "/assets/planet-not-selected.png";
-import DonlonIcon from "/assets/Donlon.png";
-import EnchaiIcon from "/assets/Enchai.png";
-import JebingIcon from "/assets/Jebing.png";
-import SapirIcon from "/assets/Sapir.png";
-import LerbinIcon from "/assets/Lerbin.png";
-import PingasorIcon from "/assets/Pingasor.png";
-
 // Components
 import Dropdown from "../dropdown/dropdown";
 import { toast } from "react-toastify";
@@ -25,13 +16,13 @@ import {
 import { selectedStructure } from "../../configs/constants";
 
 const getPlanetImagePath = {
-  Default: DefaultIcon,
-  Donlon: DonlonIcon,
-  Enchai: EnchaiIcon,
-  Jebing: JebingIcon,
-  Sapir: SapirIcon,
-  Lerbin: LerbinIcon,
-  Pingasor: PingasorIcon,
+  Default: "/assets/planet-not-selected.png",
+  Donlon: "/assets/Donlon.png",
+  Enchai: "/assets/Enchai.png",
+  Jebing: "/assets/Jebing.png",
+  Sapir: "/assets/Sapir.png",
+  Lerbin: "/assets/Lerbin.png",
+  Pingasor: "/assets/Pingasor.png",
 };
 
 const Falcone = () => {
@@ -260,6 +251,8 @@ const Falcone = () => {
                 ? getPlanetImagePath[selectedPlanets.first.name]
                 : getPlanetImagePath["Default"]
             }
+            width={280}
+            height={280}
           />
           <div className="app__falcone__contents__card__dropdown">
             <Dropdown
@@ -279,6 +272,8 @@ const Falcone = () => {
                 ? getPlanetImagePath[selectedPlanets.second.name]
                 : getPlanetImagePath["Default"]
             }
+            width={280}
+            height={280}
           />
           <div className="app__falcone__contents__card__dropdown">
             <Dropdown
@@ -298,6 +293,8 @@ const Falcone = () => {
                 ? getPlanetImagePath[selectedPlanets.third.name]
                 : getPlanetImagePath["Default"]
             }
+            width={280}
+            height={280}
           />
           <div className="app__falcone__contents__card__dropdown">
             <Dropdown
@@ -317,6 +314,8 @@ const Falcone = () => {
                 ? getPlanetImagePath[selectedPlanets.fourth.name]
                 : getPlanetImagePath["Default"]
             }
+            width={280}
+            height={280}
           />
           <div className="app__falcone__contents__card__dropdown">
             <Dropdown

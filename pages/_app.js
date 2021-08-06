@@ -1,6 +1,10 @@
+// Global Styles
 import '../styles/globals.css'
 
-// Styles
+// React Toastify Default Styles
+import 'react-toastify/dist/ReactToastify.css';
+
+// Component Styles
 import '../components/dropdown/dropdown.css';
 import '../components/falcone/falcone.css';
 import '../components/footer/footer.css';
