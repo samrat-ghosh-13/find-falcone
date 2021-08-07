@@ -1,5 +1,4 @@
 import Head from "next/head";
-import styles from "../styles/Home.module.css";
 
 // Components
 import Header from "../components/header/header";
@@ -9,12 +8,11 @@ import { ToastContainer } from "react-toastify";
 
 export default function Home() {
   return (
-    <div className={styles.container}>
+    <div>
       <Head>
         <title>Find Falcone</title>
         <link rel="icon" href="/favicon.ico" />
       </Head>
-
       <main className="app">
         <Header />
         <Falcone />

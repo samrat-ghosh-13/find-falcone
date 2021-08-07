@@ -13,8 +13,8 @@ const Dropdown = ({ classname, options, selectedValue, onSelect }) => {
   const [updatedOptions, setUpdatedOptions] = useState(options);
 
   useEffect(() => {
-    setUpdatedOptions(options);
     setQuery(selectedValue.name || '');
+    setUpdatedOptions(options);
   }, [options, selectedValue]);
 
   useOnClickOutside(dropdownRef, () => setDropdownOpen(false));
@@ -37,7 +37,7 @@ const Dropdown = ({ classname, options, selectedValue, onSelect }) => {
       setDropdownOpen(false);
       onSelect(classname, data[0]);
       setQuery(data[0].name);
-      toast.success('Our AI selected the value for you!');
+      toast.success('Our AI selected the planet for you!');
     }
     // Updating the state
     setUpdatedOptions(data);

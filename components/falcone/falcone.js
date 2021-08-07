@@ -1,6 +1,12 @@
+// React
 import { useState, useEffect } from "react";
+
+// Axios
 import axios from "axios";
+
+// Next
 import Image from "next/image";
+import { useRouter } from "next/router";
 
 // Components
 import Dropdown from "../dropdown/dropdown";
@@ -13,19 +19,14 @@ import {
   getToken,
   findFalcone,
 } from "../../actions/falcone";
-import { selectedStructure } from "../../configs/constants";
-
-const getPlanetImagePath = {
-  Default: "/assets/planet-not-selected.png",
-  Donlon: "/assets/Donlon.png",
-  Enchai: "/assets/Enchai.png",
-  Jebing: "/assets/Jebing.png",
-  Sapir: "/assets/Sapir.png",
-  Lerbin: "/assets/Lerbin.png",
-  Pingasor: "/assets/Pingasor.png",
-};
+import {
+  selectedStructure,
+  getPlanetImagePath,
+  getVehiclesImagePath,
+} from "../../configs/constants";
 
 const Falcone = () => {
+  const router = useRouter();
   const [planets, setPlanets] = useState([]);
   const [vehicles, setVehicles] = useState([]);
   const [selectedPlanets, setSelectedPlanets] = useState(selectedStructure);
@@ -167,8 +168,9 @@ const Falcone = () => {
     const planet_names = Object.values(selectedPlanets).map(
       (item) => item.name
     );
+    console.log(vehicle_names, planet_names);
     // validating if all the planets and vehicles are selected or not
-    if (planet_names.length !== 4 && vehicle_names.length !== 4) {
+    if (planet_names.includes("") && vehicle_names.includes(undefined)) {
       return toast.error("Please select all the Planets and Vehicles");
     }
     try {
@@ -185,7 +187,10 @@ const Falcone = () => {
         })
       );
       if (status === "success") {
-        return toast.success(`Found falcone on ${planet_name}`);
+        sessionStorage.setItem("planet_name", planet_name);
+        sessionStorage.setItem("time", timeTaken);
+        toast.success(`Found falcone on ${planet_name}`);
+        return router.push("/result");
       }
       toast.error(
         "Failed to find falcon, please try again with different planets and vehicles."
@@ -196,6 +201,7 @@ const Falcone = () => {
     }
   };
 
+  // Returns JSX for radio buttons
   const getRadioOptions = (classname) => {
     return (
       <div className="app__falcone__contents__radio">
@@ -223,6 +229,12 @@ const Falcone = () => {
                 <span className="app__falcone__contents__radio__label__margin">
                   ({vehicle.total_no - vehicle.selected_count})
                 </span>
+                <Image
+                  alt="Vehicle Icon"
+                  src={getVehiclesImagePath[`${vehicle.name}`]}
+                  width={32}
+                  height={32}
+                />
               </label>
             </div>
           );
@@ -231,6 +243,7 @@ const Falcone = () => {
     );
   };
 
+  // returns the final JSX for falcone.js
   return (
     <div className="app__falcone">
       <div className="app__falcone__header">
@@ -239,6 +252,7 @@ const Falcone = () => {
           <p>Total time to reach all the planets : {timeTaken}</p>
         </div>
         <div className="app__falcone__header__button">
+          <button onClick={() => router.reload()}>Reset</button>
           <button onClick={() => triggerFindFalcone()}>Find Falcone</button>
         </div>
       </div>
@@ -246,6 +260,7 @@ const Falcone = () => {
         <div className="app__falcone__contents__card">
           <Image
             alt="Planet Icon"
+            className="app__falcone__contents__card__img"
             src={
               selectedPlanets.first?.name
                 ? getPlanetImagePath[selectedPlanets.first.name]
@@ -262,6 +277,14 @@ const Falcone = () => {
               onSelect={onSelect}
             />
             {selectedPlanets.first?.name ? getRadioOptions("first") : ""}
+            {selectedPlanets.first?.distance ? (
+              <div className="app__falcone__contents__card__dropdown__distance">
+                Distance of Selected Planet:{" "}
+                {selectedPlanets.first?.distance || ""}
+              </div>
+            ) : (
+              ""
+            )}
           </div>
         </div>
         <div className="app__falcone__contents__card">
@@ -283,6 +306,14 @@ const Falcone = () => {
               onSelect={onSelect}
             />
             {selectedPlanets.second?.name ? getRadioOptions("second") : ""}
+            {selectedPlanets.second?.distance ? (
+              <div className="app__falcone__contents__card__dropdown__distance">
+                Distance of Selected Planet:{" "}
+                {selectedPlanets.second?.distance || ""}
+              </div>
+            ) : (
+              ""
+            )}
           </div>
         </div>
         <div className="app__falcone__contents__card">
@@ -304,6 +335,14 @@ const Falcone = () => {
               onSelect={onSelect}
             />
             {selectedPlanets.third?.name ? getRadioOptions("third") : ""}
+            {selectedPlanets.third?.distance ? (
+              <div className="app__falcone__contents__card__dropdown__distance">
+                Distance of Selected Planet:{" "}
+                {selectedPlanets.third?.distance || ""}
+              </div>
+            ) : (
+              ""
+            )}
           </div>
         </div>
         <div className="app__falcone__contents__card">
@@ -325,6 +364,14 @@ const Falcone = () => {
               onSelect={onSelect}
             />
             {selectedPlanets.fourth?.name ? getRadioOptions("fourth") : ""}
+            {selectedPlanets.fourth?.distance ? (
+              <div className="app__falcone__contents__card__dropdown__distance">
+                Distance of Selected Planet:{" "}
+                {selectedPlanets.fourth?.distance || ""}
+              </div>
+            ) : (
+              ""
+            )}
           </div>
         </div>
       </div>
