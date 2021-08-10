@@ -258,17 +258,6 @@ const Falcone = () => {
       </div>
       <div className="app__falcone__contents">
         <div className="app__falcone__contents__card">
-          <Image
-            alt="Planet Icon"
-            className="app__falcone__contents__card__img"
-            src={
-              selectedPlanets.first?.name
-                ? getPlanetImagePath[selectedPlanets.first.name]
-                : getPlanetImagePath["Default"]
-            }
-            width={280}
-            height={280}
-          />
           <div className="app__falcone__contents__card__dropdown">
             <Dropdown
               classname="first"
@@ -286,18 +275,19 @@ const Falcone = () => {
               ""
             )}
           </div>
-        </div>
-        <div className="app__falcone__contents__card">
           <Image
             alt="Planet Icon"
+            className="app__falcone__contents__card__img"
             src={
-              selectedPlanets.second?.name
-                ? getPlanetImagePath[selectedPlanets.second.name]
+              selectedPlanets.first?.name
+                ? getPlanetImagePath[selectedPlanets.first.name]
                 : getPlanetImagePath["Default"]
             }
             width={280}
             height={280}
           />
+        </div>
+        <div className="app__falcone__contents__card">
           <div className="app__falcone__contents__card__dropdown">
             <Dropdown
               classname="second"
@@ -315,18 +305,18 @@ const Falcone = () => {
               ""
             )}
           </div>
-        </div>
-        <div className="app__falcone__contents__card">
           <Image
             alt="Planet Icon"
             src={
-              selectedPlanets.third?.name
-                ? getPlanetImagePath[selectedPlanets.third.name]
+              selectedPlanets.second?.name
+                ? getPlanetImagePath[selectedPlanets.second.name]
                 : getPlanetImagePath["Default"]
             }
             width={280}
             height={280}
           />
+        </div>
+        <div className="app__falcone__contents__card">
           <div className="app__falcone__contents__card__dropdown">
             <Dropdown
               classname="third"
@@ -344,18 +334,18 @@ const Falcone = () => {
               ""
             )}
           </div>
-        </div>
-        <div className="app__falcone__contents__card">
           <Image
             alt="Planet Icon"
             src={
-              selectedPlanets.fourth?.name
-                ? getPlanetImagePath[selectedPlanets.fourth.name]
+              selectedPlanets.third?.name
+                ? getPlanetImagePath[selectedPlanets.third.name]
                 : getPlanetImagePath["Default"]
             }
             width={280}
             height={280}
           />
+        </div>
+        <div className="app__falcone__contents__card">
           <div className="app__falcone__contents__card__dropdown">
             <Dropdown
               classname="fourth"
@@ -373,6 +363,16 @@ const Falcone = () => {
               ""
             )}
           </div>
+          <Image
+            alt="Planet Icon"
+            src={
+              selectedPlanets.fourth?.name
+                ? getPlanetImagePath[selectedPlanets.fourth.name]
+                : getPlanetImagePath["Default"]
+            }
+            width={280}
+            height={280}
+          />
         </div>
       </div>
     </div>

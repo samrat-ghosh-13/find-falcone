@@ -25,6 +25,7 @@
     padding: 8px;
     color: #000;
     cursor: pointer;
+    width: 96px;
 }
 .app__header__contents__right__cta--first {
     margin-right: 1rem;

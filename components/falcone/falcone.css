@@ -29,6 +29,13 @@
   color: #000;
   cursor: pointer;
   margin-left: 16px;
+  width: 96px;
+  margin-top: 8px;
+}
+@media (min-width: 768px) {
+  .app__falcone__header__button button {
+    margin-top: 0;
+  }
 }
 .app__falcone__contents {
   display: grid;
@@ -53,11 +60,24 @@
   margin-right: 8px;
   height: 360px;
   display: flex;
-  justify-content: flex-start;
-  align-items: flex-start;
+  flex-direction: column;
+  height: max-content;
+}
+@media (min-width: 768px) {
+  .app__falcone__contents__card {
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: flex-start;
+  }
 }
 .app__falcone__contents__card__dropdown {
   margin-left: 8px;
+  margin-bottom: 16px;
+}
+@media (min-width: 768px) {
+  .app__falcone__contents__card__dropdown {
+    margin-bottom: 0;
+  }
 }
 .app__falcone__contents__card__dropdown__distance {
   position: absolute;
