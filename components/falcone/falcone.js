@@ -204,12 +204,12 @@ const Falcone = () => {
   // Returns JSX for radio buttons
   const getRadioOptions = (classname) => {
     return (
-      <div className="app__falcone__contents__radio">
+      <div className="app__falcone__contents__card__dropdown__c">
         {Object.values(vehicles).map((vehicle) => {
           return (
-            <div key={`${vehicle.name}-${classname}`}>
+            <div key={`${vehicle.name}-${classname}`} className="app__falcone__contents__card__dropdown__c__radio">
               <input
-                className="app__falcone__contents__radio__input"
+                className="app__falcone__contents__card__dropdown__c__radio__input"
                 type="radio"
                 id={vehicle.name}
                 name={classname}
@@ -222,11 +222,11 @@ const Falcone = () => {
                 onClick={() => onRadioSelect(classname, vehicle)}
               />
               <label
-                className="app__falcone__contents__radio__label"
+                className="app__falcone__contents__card__dropdown__c__radio__label"
                 htmlFor={vehicle.name}
               >
                 {vehicle.name}
-                <span className="app__falcone__contents__radio__label__margin">
+                <span className="app__falcone__contents__card__dropdown__c__radio__label__margin">
                   ({vehicle.total_no - vehicle.selected_count})
                 </span>
                 <Image

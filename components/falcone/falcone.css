@@ -83,15 +83,25 @@
   position: absolute;
   bottom: 16px;
 }
-.app__falcone__contents__radio {
+.app__falcone__contents__card__dropdown .dropdown {
+  margin-bottom: 80px;
+}
+.app__falcone__contents__card__dropdown__c {
   margin-top: 80px;
 }
-.app__falcone__contents__radio__input:disabled {
+.app__falcone__contents__card__dropdown__c__radio {
+  display: flex;
+  align-items: center;
+}
+.app__falcone__contents__card__dropdown__c__radio__input:disabled {
   cursor: not-allowed;
 }
-.app__falcone__contents__radio__label {
+.app__falcone__contents__card__dropdown__c__radio__label {
   color: #000;
+  display: flex;
+  align-items: center;
 }
-.app__falcone__contents__radio__label__margin {
+.app__falcone__contents__card__dropdown__c__radio__label__margin {
   margin-left: 4px;
+  margin-right: 8px;
 }

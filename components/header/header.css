@@ -18,6 +18,13 @@
     max-width: 1240px;
     margin: 0 auto;
 }
+.app__header__contents__left {
+    display: flex;
+    align-items: center;
+}
+.app__header__contents__left p{
+    margin-left: 16px;
+}
 .app__header__contents__right__cta {
     background: transparent;
     border: 1px solid #000;
