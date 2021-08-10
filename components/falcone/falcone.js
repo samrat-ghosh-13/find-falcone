@@ -207,7 +207,10 @@ const Falcone = () => {
       <div className="app__falcone__contents__card__dropdown__c">
         {Object.values(vehicles).map((vehicle) => {
           return (
-            <div key={`${vehicle.name}-${classname}`} className="app__falcone__contents__card__dropdown__c__radio">
+            <div
+              key={`${vehicle.name}-${classname}`}
+              className="app__falcone__contents__card__dropdown__c__radio"
+            >
               <input
                 className="app__falcone__contents__card__dropdown__c__radio__input"
                 type="radio"
@@ -266,14 +269,6 @@ const Falcone = () => {
               onSelect={onSelect}
             />
             {selectedPlanets.first?.name ? getRadioOptions("first") : ""}
-            {selectedPlanets.first?.distance ? (
-              <div className="app__falcone__contents__card__dropdown__distance">
-                Distance of Selected Planet:{" "}
-                {selectedPlanets.first?.distance || ""}
-              </div>
-            ) : (
-              ""
-            )}
           </div>
           <Image
             alt="Planet Icon"
@@ -286,6 +281,15 @@ const Falcone = () => {
             width={280}
             height={280}
           />
+          {selectedPlanets.first?.distance ? (
+            <div className="app__falcone__contents__card__distance">
+              <p>
+                Distance of the planet: {selectedPlanets.first?.distance || ""}
+              </p>
+            </div>
+          ) : (
+            ""
+          )}
         </div>
         <div className="app__falcone__contents__card">
           <div className="app__falcone__contents__card__dropdown">
@@ -296,14 +300,6 @@ const Falcone = () => {
               onSelect={onSelect}
             />
             {selectedPlanets.second?.name ? getRadioOptions("second") : ""}
-            {selectedPlanets.second?.distance ? (
-              <div className="app__falcone__contents__card__dropdown__distance">
-                Distance of Selected Planet:{" "}
-                {selectedPlanets.second?.distance || ""}
-              </div>
-            ) : (
-              ""
-            )}
           </div>
           <Image
             alt="Planet Icon"
@@ -315,6 +311,15 @@ const Falcone = () => {
             width={280}
             height={280}
           />
+          {selectedPlanets.second?.distance ? (
+            <div className="app__falcone__contents__card__distance">
+              <p>
+                Distance of the planet: {selectedPlanets.second?.distance || ""}
+              </p>
+            </div>
+          ) : (
+            ""
+          )}
         </div>
         <div className="app__falcone__contents__card">
           <div className="app__falcone__contents__card__dropdown">
@@ -325,14 +330,6 @@ const Falcone = () => {
               onSelect={onSelect}
             />
             {selectedPlanets.third?.name ? getRadioOptions("third") : ""}
-            {selectedPlanets.third?.distance ? (
-              <div className="app__falcone__contents__card__dropdown__distance">
-                Distance of Selected Planet:{" "}
-                {selectedPlanets.third?.distance || ""}
-              </div>
-            ) : (
-              ""
-            )}
           </div>
           <Image
             alt="Planet Icon"
@@ -344,6 +341,15 @@ const Falcone = () => {
             width={280}
             height={280}
           />
+          {selectedPlanets.third?.distance ? (
+            <div className="app__falcone__contents__card__distance">
+              <p>
+                Distance of the planet: {selectedPlanets.third?.distance || ""}
+              </p>
+            </div>
+          ) : (
+            ""
+          )}
         </div>
         <div className="app__falcone__contents__card">
           <div className="app__falcone__contents__card__dropdown">
@@ -354,14 +360,6 @@ const Falcone = () => {
               onSelect={onSelect}
             />
             {selectedPlanets.fourth?.name ? getRadioOptions("fourth") : ""}
-            {selectedPlanets.fourth?.distance ? (
-              <div className="app__falcone__contents__card__dropdown__distance">
-                Distance of Selected Planet:{" "}
-                {selectedPlanets.fourth?.distance || ""}
-              </div>
-            ) : (
-              ""
-            )}
           </div>
           <Image
             alt="Planet Icon"
@@ -373,6 +371,15 @@ const Falcone = () => {
             width={280}
             height={280}
           />
+          {selectedPlanets.fourth?.distance ? (
+            <div className="app__falcone__contents__card__distance">
+              <p>
+                Distance of the planet: {selectedPlanets.fourth?.distance || ""}
+              </p>
+            </div>
+          ) : (
+            ""
+          )}
         </div>
       </div>
     </div>

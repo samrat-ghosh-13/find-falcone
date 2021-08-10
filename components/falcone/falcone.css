@@ -47,21 +47,20 @@
   }
 }
 .app__falcone__contents__card {
-  padding: 16px;
   background-color: #f7f7f7;
   border-radius: 4px;
   border: 0.5px solid #dbdbdb;
   box-sizing: border-box;
   box-shadow: 0 1px 5px rgba(0, 0, 0, 0.04), 0 3px 1px -2px rgba(0, 0, 0, 0.03),
     0 2px 2px rgba(0, 0, 0, 0.04);
-  margin-bottom: 16px;
   position: relative;
   overflow: hidden;
-  margin-right: 8px;
-  height: 360px;
   display: flex;
   flex-direction: column;
   height: max-content;
+  padding: 16px;
+  margin-right: 8px;
+  margin-bottom: 16px;
 }
 @media (min-width: 768px) {
   .app__falcone__contents__card {
@@ -79,9 +78,14 @@
     margin-bottom: 0;
   }
 }
-.app__falcone__contents__card__dropdown__distance {
-  position: absolute;
-  bottom: 16px;
+.app__falcone__contents__card__distance {
+  margin-top: 16px;
+}
+@media (min-width: 768px) {
+  .app__falcone__contents__card__distance {
+    position: absolute;
+    bottom: 16px;
+  }
 }
 .app__falcone__contents__card__dropdown .dropdown {
   margin-bottom: 80px;
