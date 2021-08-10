@@ -52,7 +52,7 @@
     color: #fff;
 }
 .dropdown__options__container {
-    max-height: 240px;
+    max-height: 200px;
     overflow: auto;
     z-index: 99;
 }
