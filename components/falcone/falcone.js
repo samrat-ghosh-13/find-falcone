@@ -25,7 +25,11 @@ import {
   getVehiclesImagePath,
 } from "../../configs/constants";
 
+// Store Context
+import { useDataContext } from "../../store/store";
+
 const Falcone = () => {
+  const data = useDataContext();
   const router = useRouter();
   const [planets, setPlanets] = useState([]);
   const [vehicles, setVehicles] = useState([]);
@@ -40,6 +44,7 @@ const Falcone = () => {
       const fetchPlanets = async () => {
         const { data: planets } = await axios(getPlanets());
         toast.success("Successfully retrived planets!");
+        // Updating State
         setPlanets(
           planets.map((planet) => {
             return {
@@ -48,6 +53,8 @@ const Falcone = () => {
             };
           })
         );
+        // Updating Context
+        data.planets = planets;
       };
       fetchPlanets();
     } catch (error) {
@@ -60,7 +67,7 @@ const Falcone = () => {
         let vehicles = {};
         const { data } = await axios(getVehicles());
         toast.success("Successfully retrived vehicles!");
-        data.forEach((vehicle, index) => {
+        data.forEach((vehicle) => {
           vehicles = {
             ...vehicles,
             [`${vehicle.name}`]: {
@@ -71,6 +78,8 @@ const Falcone = () => {
         });
         // Updating the state
         setVehicles(vehicles);
+        // Updating Context
+        data.vehicles = vehicles;
       };
       fetchVehicles();
     } catch (error) {

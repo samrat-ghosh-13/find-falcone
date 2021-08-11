@@ -1,5 +1,6 @@
 // Next
 import Image from "next/image";
+import router from "next/router";
 
 const Header = () => {
   return (
@@ -17,10 +18,16 @@ const Header = () => {
             <p className="app__header__contents__left__text">Finding Falcone</p>
           </div>
           <div className="app__header__contents__right">
-            <button className="app__header__contents__right__cta app__header__contents__right__cta--first">
+            <button
+              className="app__header__contents__right__cta app__header__contents__right__cta--first"
+              onClick={() => router.push("/planets")}
+            >
               Planets
             </button>
-            <button className="app__header__contents__right__cta app__header__contents__right__cta--second">
+            <button
+              className="app__header__contents__right__cta app__header__contents__right__cta--second"
+              onClick={() => router.push("/vehicles")}
+            >
               Vehicles
             </button>
           </div>
