@@ -177,7 +177,6 @@ const Falcone = () => {
     const planet_names = Object.values(selectedPlanets).map(
       (item) => item.name
     );
-    console.log(vehicle_names, planet_names);
     // validating if all the planets and vehicles are selected or not
     if (planet_names.includes("") && vehicle_names.includes(undefined)) {
       return toast.error("Please select all the Planets and Vehicles");

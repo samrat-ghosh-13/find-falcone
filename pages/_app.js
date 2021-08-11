@@ -26,7 +26,7 @@ function MyApp({ Component, pageProps }) {
     <DataProvider value={data}>
       <Component {...pageProps} />;
     </DataProvider>
-  );
+  )
 }
 
 export default MyApp;

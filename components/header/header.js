@@ -7,7 +7,10 @@ const Header = () => {
     <article>
       <header className="app__header">
         <div className="app__header__contents">
-          <div className="app__header__contents__left">
+          <div
+            className="app__header__contents__left"
+            onClick={() => router.push("/")}
+          >
             <Image
               alt="Falcons Icon"
               src="/assets/falcons.png"
