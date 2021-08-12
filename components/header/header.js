@@ -2,6 +2,9 @@
 import Image from "next/image";
 import router from "next/router";
 
+// Components
+import Button from "../button/button";
+
 const Header = () => {
   return (
     <article>
@@ -21,18 +24,18 @@ const Header = () => {
             <p className="app__header__contents__left__text">Finding Falcone</p>
           </div>
           <div className="app__header__contents__right">
-            <button
-              className="app__header__contents__right__cta app__header__contents__right__cta--first"
-              onClick={() => router.push("/planets")}
+            <Button
+              classname="app__header__contents__right__cta app__header__contents__right__cta--first"
+              handleClick={() => router.push("/planets")}
             >
               Planets
-            </button>
-            <button
-              className="app__header__contents__right__cta app__header__contents__right__cta--second"
-              onClick={() => router.push("/vehicles")}
+            </Button>
+            <Button
+              classname="app__header__contents__right__cta app__header__contents__right__cta--second"
+              handleClick={() => router.push("/vehicles")}
             >
               Vehicles
-            </button>
+            </Button>
           </div>
         </div>
       </header>

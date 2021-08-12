@@ -1,0 +1,12 @@
+.button {
+  background: transparent;
+  border: 1px solid #000;
+  border-radius: 4px;
+  padding: 8px;
+  color: #000;
+  cursor: pointer;
+  width: 96px;
+}
+.button-text {
+    color: red;
+}

@@ -7,6 +7,7 @@ import axios from "axios";
 // Next
 import Image from "next/image";
 import { useRouter } from "next/router";
+import Button from "../button/button";
 
 // Components
 import Dropdown from "../dropdown/dropdown";
@@ -263,8 +264,8 @@ const Falcone = () => {
           <p>Total time to reach all the planets : {timeTaken}</p>
         </div>
         <div className="app__falcone__header__button">
-          <button onClick={() => router.reload()}>Reset</button>
-          <button onClick={() => triggerFindFalcone()}>Find Falcone</button>
+          <Button handleClick={() => router.reload()}>Reset</Button>
+          <Button handleClick={() => triggerFindFalcone()}>Find Falcone</Button>
         </div>
       </div>
       <div className="app__falcone__contents">

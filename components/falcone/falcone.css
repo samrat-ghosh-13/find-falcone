@@ -80,6 +80,7 @@
 }
 .app__falcone__contents__card__distance {
   margin-top: 16px;
+  text-align: center;
 }
 @media (min-width: 768px) {
   .app__falcone__contents__card__distance {

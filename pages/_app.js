@@ -9,6 +9,7 @@ import "../components/dropdown/dropdown.css";
 import "../components/falcone/falcone.css";
 import "../components/footer/footer.css";
 import "../components/header/header.css";
+import "../components/button/button.css";
 
 // React
 import { useState } from "react";
