@@ -4,7 +4,14 @@ const Footer = () => {
       <footer className="app__footer">
         <div className="app__footer__contents">
           Made with <span className="app__footer__contents__logo">❤️</span> by
-          Samrat Ghosh © 2021
+          <a
+            href="https://www.linkedin.com/in/samratat/"
+            target="_blank"
+            rel="noreferrer"
+          >
+            Samrat Ghosh
+          </a>
+          © 2021
         </div>
       </footer>
     </article>

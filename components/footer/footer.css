@@ -16,6 +16,9 @@
   align-items: center;
   height: 40px;
 }
+.app__footer__contents a {
+  margin: 0 4px;
+}
 .app__footer__contents__logo {
   margin-left: 4px;
   margin-right: 8px;
