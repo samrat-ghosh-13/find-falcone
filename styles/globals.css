@@ -23,7 +23,7 @@ p {
 }
 .app__result__header__contents {
   padding: 16px;
-  background-color: #f7f7f7;
+  background-color: #fff;
   border-radius: 4px;
   border: 0.5px solid #dbdbdb;
   box-sizing: border-box;
@@ -34,9 +34,10 @@ p {
   z-index: 999;
   display: flex;
   flex-direction: column;
+  align-items: center;
 }
 .app__result__header__contents p {
-  margin-top: 40px;
+  margin-top: 16px;
 }
 .app__result__header__contents button {
   background: transparent;
@@ -45,7 +46,10 @@ p {
   padding: 8px;
   color: #000;
   cursor: pointer;
-  margin-top: 40px;
+  margin-top: 16px;
+}
+.app__result__header__contents__icon {
+  margin-top: 16px;
 }
 .app__planets,
 .app__vehicles {
@@ -58,7 +62,7 @@ p {
 }
 .app__planets__card,
 .app__vehicles__card {
-  background-color: #f7f7f7;
+  background-color: #fff;
   border-radius: 4px;
   border: 0.5px solid #dbdbdb;
   box-sizing: border-box;

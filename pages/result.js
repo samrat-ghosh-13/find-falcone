@@ -1,27 +1,33 @@
 // React
-import { useState, useEffect } from "react";
+import { useEffect } from "react";
 import { useRouter } from "next/router";
 
 // Next
 import Head from "next/head";
 import Image from "next/image";
 
+// Store Context
+import { useDataContext } from "../store/store";
+
 // Components
 import Header from "../components/header/header";
 import Footer from "../components/footer/footer";
+import Button from "../components/button/button";
+import { toast } from "react-toastify";
 
 // Constants
 import { getPlanetImagePath } from "../configs/constants";
 
 export default function Result() {
   const router = useRouter();
-  const [planet, setPlanet] = useState("");
-  const [time, setTime] = useState(0);
+  const { planet_name, time } = useDataContext();
 
   // updates the state from the session storage
   useEffect(() => {
-    setPlanet(sessionStorage.getItem("planet_name"));
-    setTime(sessionStorage.getItem("time"));
+    if (planet_name.length === 0) {
+      toast.error("No results found, redirecting to the home page!");
+      return router.push("/");
+    }
   }, []);
 
   // returns the final JSX for result.js
@@ -38,18 +44,18 @@ export default function Result() {
             <h4>
               <span>
                 Success! Congratulations on finding falcone, King Shah is mighty
-                pleased!{" "}
+                pleased!
               </span>
             </h4>
             <p>Total time to reach all the planets : {time}</p>
             <p>
-              <span>Planet Found: {planet}</span>
+              <span>Planet Found: {planet_name}</span>
             </p>
-            <div>
-              {planet ? (
+            <div className="app__result__header__contents__icon">
+              {planet_name ? (
                 <Image
                   alt="Planet Icon"
-                  src={getPlanetImagePath[`${planet}`]}
+                  src={getPlanetImagePath[`${planet_name}`]}
                   width={280}
                   height={280}
                 />
@@ -57,13 +63,7 @@ export default function Result() {
                 ""
               )}
             </div>
-            <button
-              onClick={() => {
-                router.push("/");
-              }}
-            >
-              Start Again
-            </button>
+            <Button handleClick={() => router.push("/")}>Start Again</Button>
           </div>
         </div>
         <Footer />

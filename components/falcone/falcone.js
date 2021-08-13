@@ -174,15 +174,14 @@ const Falcone = () => {
 
   // handles the find falcone API calls and redirects to new page
   const triggerFindFalcone = async () => {
-    let areAllPlanetsAndVehiclesSelected = false;
     const vehicle_names = Object.values(selectedVehicles);
     const planet_names = Object.values(selectedPlanets).map(
       (item) => item.name
     );
     // validating if all the planets and vehicles are selected or not
     if (
-      planet_names.filter((item) => item === "").length &&
-      vehicle_names.filter((item) => item === undefined).length
+      planet_names.filter((item) => item === undefined).length ||
+      vehicle_names.filter((item) => item === "").length
     ) {
       return toast.error("Please select all the Planets and Vehicles");
     }
@@ -200,8 +199,8 @@ const Falcone = () => {
         })
       );
       if (status === "success") {
-        sessionStorage.setItem("planet_name", planet_name);
-        sessionStorage.setItem("time", timeTaken);
+        data.planet_name = planet_name;
+        data.time = timeTaken;
         toast.success(`Found falcone on ${planet_name}`);
         return router.push("/result");
       }

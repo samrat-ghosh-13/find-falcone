@@ -21,13 +21,15 @@ function MyApp({ Component, pageProps }) {
   const [data] = useState({
     planets: [],
     vehicles: [],
+    planet_name: "",
+    timeTaken: "",
   });
 
   return (
     <DataProvider value={data}>
-      <Component {...pageProps} />;
+      <Component {...pageProps} />
     </DataProvider>
-  )
+  );
 }
 
 export default MyApp;
