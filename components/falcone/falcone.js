@@ -66,9 +66,12 @@ const Falcone = () => {
     try {
       const fetchVehicles = async () => {
         let vehicles = {};
-        const { data } = await axios(getVehicles());
+        const { data: vehiclesData } = await axios(getVehicles());
         toast.success("Successfully retrived vehicles!");
-        data.forEach((vehicle) => {
+        // Updating Context
+        data.vehicles = vehiclesData;
+        // Updating the state
+        vehiclesData.forEach((vehicle) => {
           vehicles = {
             ...vehicles,
             [`${vehicle.name}`]: {
@@ -77,10 +80,7 @@ const Falcone = () => {
             },
           };
         });
-        // Updating the state
         setVehicles(vehicles);
-        // Updating Context
-        data.vehicles = vehicles;
       };
       fetchVehicles();
     } catch (error) {
@@ -174,12 +174,16 @@ const Falcone = () => {
 
   // handles the find falcone API calls and redirects to new page
   const triggerFindFalcone = async () => {
+    let areAllPlanetsAndVehiclesSelected = false;
     const vehicle_names = Object.values(selectedVehicles);
     const planet_names = Object.values(selectedPlanets).map(
       (item) => item.name
     );
     // validating if all the planets and vehicles are selected or not
-    if (planet_names.includes("") && vehicle_names.includes(undefined)) {
+    if (
+      planet_names.filter((item) => item === "").length &&
+      vehicle_names.filter((item) => item === undefined).length
+    ) {
       return toast.error("Please select all the Planets and Vehicles");
     }
     try {

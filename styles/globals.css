@@ -47,7 +47,8 @@ p {
   cursor: pointer;
   margin-top: 40px;
 }
-.app__planets {
+.app__planets,
+.app__vehicles {
   max-width: 1240px;
   margin: 0 auto;
   margin-top: 80px;
@@ -55,7 +56,8 @@ p {
   display: grid;
   grid-template-columns: 1fr 1fr;
 }
-.app__planets__card {
+.app__planets__card,
+.app__vehicles__card {
   background-color: #f7f7f7;
   border-radius: 4px;
   border: 0.5px solid #dbdbdb;
