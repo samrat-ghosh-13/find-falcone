@@ -26,7 +26,7 @@ export default function Planets() {
       toast.error("No Vehicles found, redirecting to the home page!");
       return router.push("/");
     }
-  }, []);
+  });
 
   return (
     <div>
@@ -42,6 +42,7 @@ export default function Planets() {
               return (
                 <div key={vehicle.name} className="app__vehicles__card">
                   <Image
+                    alt="Vehicles Image"
                     src={getVehiclesImagePath[vehicle.name]}
                     width={280}
                     height={280}

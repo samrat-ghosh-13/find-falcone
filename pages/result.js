@@ -28,7 +28,7 @@ export default function Result() {
       toast.error("No results found, redirecting to the home page!");
       return router.push("/");
     }
-  }, []);
+  });
 
   // returns the final JSX for result.js
   return (
