@@ -5,6 +5,7 @@ import {
   getVehiclesEndpoint
 } from './apiEndPoints.js';
 
+// Get Planets API Request
 export const getPlanets = () => {
   return {
     method: 'get',
@@ -12,6 +13,7 @@ export const getPlanets = () => {
   };
 };
 
+// Get Vehicles API Request
 export const getVehicles = () => {
   return {
     method: 'get',
@@ -19,6 +21,7 @@ export const getVehicles = () => {
   };
 };
 
+// Post Token API Request
 export const getToken = () => {
   return {
     method: 'post',
@@ -29,6 +32,7 @@ export const getToken = () => {
   };
 };
 
+// Post Falcone API Request to find the Falcone in a planet
 export const findFalcone = (data) => {
   return {
     method: 'post',
