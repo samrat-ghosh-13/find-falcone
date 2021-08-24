@@ -1,6 +1,6 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`Case 1: Button Component Renders Correctly 1`] = `
+exports[`Test Button component Case 1: Button Component Renders Correctly 1`] = `
 <button
   className=" button    button--medium"
   data-testid="button"
@@ -11,7 +11,8 @@ exports[`Case 1: Button Component Renders Correctly 1`] = `
     className="button__text"
     data-testid="button__text"
   >
-    Test
+    Click to increase: 
+    0
   </span>
 </button>
 `;
