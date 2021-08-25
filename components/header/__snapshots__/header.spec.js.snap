@@ -1,0 +1,124 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Test Header component Case 1: Header Component Renders Correctly (Snapshot) 1`] = `
+<article>
+  <header
+    className="app__header"
+  >
+    <div
+      className="app__header__contents"
+    >
+      <div
+        className="app__header__contents__left"
+        onClick={[Function]}
+      >
+        <div
+          style={
+            Object {
+              "boxSizing": "border-box",
+              "display": "inline-block",
+              "height": 32,
+              "overflow": "hidden",
+              "position": "relative",
+              "width": 32,
+            }
+          }
+        >
+          <noscript>
+            <img
+              alt="Falcons Icon"
+              decoding="async"
+              src="/_next/image?url=%2Fassets%2Ffalcons.png&w=64&q=75"
+              srcSet="/_next/image?url=%2Fassets%2Ffalcons.png&w=32&q=75 1x, /_next/image?url=%2Fassets%2Ffalcons.png&w=64&q=75 2x"
+              style={
+                Object {
+                  "border": "none",
+                  "bottom": 0,
+                  "boxSizing": "border-box",
+                  "display": "block",
+                  "height": 0,
+                  "left": 0,
+                  "margin": "auto",
+                  "maxHeight": "100%",
+                  "maxWidth": "100%",
+                  "minHeight": "100%",
+                  "minWidth": "100%",
+                  "objectFit": undefined,
+                  "objectPosition": undefined,
+                  "padding": 0,
+                  "position": "absolute",
+                  "right": 0,
+                  "top": 0,
+                  "width": 0,
+                }
+              }
+            />
+          </noscript>
+          <img
+            alt="Falcons Icon"
+            decoding="async"
+            src="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7"
+            style={
+              Object {
+                "border": "none",
+                "bottom": 0,
+                "boxSizing": "border-box",
+                "display": "block",
+                "height": 0,
+                "left": 0,
+                "margin": "auto",
+                "maxHeight": "100%",
+                "maxWidth": "100%",
+                "minHeight": "100%",
+                "minWidth": "100%",
+                "objectFit": undefined,
+                "objectPosition": undefined,
+                "padding": 0,
+                "position": "absolute",
+                "right": 0,
+                "top": 0,
+                "width": 0,
+              }
+            }
+          />
+        </div>
+        <p
+          className="app__header__contents__left__text"
+        >
+          Finding Falcone
+        </p>
+      </div>
+      <div
+        className="app__header__contents__right"
+      >
+        <button
+          className=" button app__header__contents__right__cta app__header__contents__right__cta--first   button--medium"
+          data-testid="button"
+          disabled={false}
+          onClick={[Function]}
+        >
+          <span
+            className="button__text"
+            data-testid="button__text"
+          >
+            Planets
+          </span>
+        </button>
+        <button
+          className=" button app__header__contents__right__cta app__header__contents__right__cta--second   button--medium"
+          data-testid="button"
+          disabled={false}
+          onClick={[Function]}
+        >
+          <span
+            className="button__text"
+            data-testid="button__text"
+          >
+            Vehicles
+          </span>
+        </button>
+      </div>
+    </div>
+  </header>
+</article>
+`;
