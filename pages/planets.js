@@ -18,6 +18,16 @@ import { toast } from "react-toastify";
 import { getPlanetImagePath } from "../configs/constants";
 
 export default function Planets() {
+  const headerButtons = [
+    {
+      name: "Planets",
+      path: "/planets",
+    },
+    {
+      name: "Vehicles",
+      path: "/vehicles",
+    },
+  ];
   const { planets } = useDataContext();
   const router = useRouter();
 
@@ -35,7 +45,7 @@ export default function Planets() {
         <link rel="icon" href="/favicon.ico" />
       </Head>
       <main className="app">
-        <Header />
+        <Header buttons={headerButtons} />
         <div className="app__planets">
           {planets.length ? (
             planets.map((planet) => {

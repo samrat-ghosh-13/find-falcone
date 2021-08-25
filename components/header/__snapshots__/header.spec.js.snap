@@ -92,9 +92,9 @@ exports[`Test Header component Case 1: Header Component Renders Correctly (Snaps
         className="app__header__contents__right"
       >
         <button
-          className=" button app__header__contents__right__cta app__header__contents__right__cta--first   button--medium"
+          buttons={Array []}
+          className=" button app__header__contents__right__cta undefined  undefined"
           data-testid="button"
-          disabled={false}
           onClick={[Function]}
         >
           <span
@@ -105,9 +105,9 @@ exports[`Test Header component Case 1: Header Component Renders Correctly (Snaps
           </span>
         </button>
         <button
-          className=" button app__header__contents__right__cta app__header__contents__right__cta--second   button--medium"
+          buttons={Array []}
+          className=" button app__header__contents__right__cta undefined  undefined"
           data-testid="button"
-          disabled={false}
           onClick={[Function]}
         >
           <span

@@ -17,16 +17,28 @@ import "@testing-library/jest-dom/extend-expect";
 jest.mock("next/router", () => require("next-router-mock"));
 
 describe("Test Header component", () => {
+  const headerButtons = [
+    {
+      name: "Planets",
+      path: "/planets",
+    },
+    {
+      name: "Vehicles",
+      path: "/vehicles",
+    },
+  ];
   it("Case 1: Header Component Renders Correctly (Snapshot)", () => {
-    const headerComponentTree = renderer.create(<Header />).toJSON();
+    const headerComponentTree = renderer
+      .create(<Header buttons={headerButtons} />)
+      .toJSON();
     expect(headerComponentTree).toMatchSnapshot();
   });
   it("Case 2: Checks the header brand is correct or not", () => {
-    const { getByText } = render(<Header />);
+    const { getByText } = render(<Header buttons={headerButtons} />);
     expect(getByText("Finding Falcone", { exact: true })).toBeInTheDocument();
   });
   it("Case 3: Checks the planets button click redirects to the correct route or not", () => {
-    const { getByText } = render(<Header />);
+    const { getByText } = render(<Header buttons={headerButtons} />);
     fireEvent.click(getByText("Planets"));
     expect(router).toMatchObject({
       asPath: "/planets",
@@ -35,7 +47,7 @@ describe("Test Header component", () => {
     });
   });
   it("Case 4: Checks the vehicles button click redirects to the correct route or not", () => {
-    const { getByText } = render(<Header />);
+    const { getByText } = render(<Header buttons={headerButtons} />);
     fireEvent.click(getByText("Vehicles"));
     expect(router).toMatchObject({
       asPath: "/vehicles",
@@ -44,7 +56,7 @@ describe("Test Header component", () => {
     });
   });
   it("Case 5: Checks the Header Component has the planets and vehicles button", () => {
-    const { getByText } = render(<Header />);
+    const { getByText } = render(<Header buttons={headerButtons} />);
     expect(getByText("Planets", { exact: true })).toBeInTheDocument();
     expect(getByText("Vehicles", { exact: true })).toBeInTheDocument();
   });

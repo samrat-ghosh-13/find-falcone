@@ -10,6 +10,16 @@ import Falcone from "../components/falcone/falcone";
 import { ToastContainer } from "react-toastify";
 
 export default function Home() {
+  const headerButtons = [
+    {
+      name: "Planets",
+      path: "/planets",
+    },
+    {
+      name: "Vehicles",
+      path: "/vehicles",
+    },
+  ];
   return (
     <div>
       <Head>
@@ -17,7 +27,7 @@ export default function Home() {
         <link rel="icon" href="/favicon.ico" />
       </Head>
       <main className="app">
-        <Header />
+        <Header buttons={headerButtons} />
         <Falcone />
         <Footer />
         <ToastContainer
@@ -33,5 +43,5 @@ export default function Home() {
         />
       </main>
     </div>
-  )
+  );
 }
