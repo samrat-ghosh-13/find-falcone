@@ -1,23 +1,27 @@
-import React, { useState, useEffect, useRef } from 'react';
+import React, { useState, useEffect, useRef } from "react";
 
 // Hooks
-import useOnClickOutside from '../../hooks/clickOutside';
+import useOnClickOutside from "../../hooks/clickOutside";
 
 // Components
-import { toast } from 'react-toastify';
+import { toast } from "react-toastify";
 
 const Dropdown = ({ classname, options, selectedValue, onSelect }) => {
   const dropdownRef = useRef();
+  const inputRef = useRef();
   const [isDropdownOpen, setDropdownOpen] = useState(false);
   const [query, setQuery] = useState(selectedValue);
   const [updatedOptions, setUpdatedOptions] = useState(options);
 
   useEffect(() => {
-    setQuery(selectedValue.name || '');
+    setQuery(selectedValue.name || "");
     setUpdatedOptions(options);
   }, [options, selectedValue]);
 
-  useOnClickOutside(dropdownRef, () => setDropdownOpen(false));
+  useOnClickOutside(dropdownRef, () => {
+    inputRef.current.blur();
+    setDropdownOpen(false);
+  });
 
   const updateDropdownOptions = (value) => {
     const data = value
@@ -37,7 +41,7 @@ const Dropdown = ({ classname, options, selectedValue, onSelect }) => {
       setDropdownOpen(false);
       onSelect(classname, data[0]);
       setQuery(data[0].name);
-      toast.success('Our AI selected the planet for you!');
+      toast.success("Our AI selected the planet for you!");
     }
     // Updating the state
     setUpdatedOptions(data);
@@ -63,6 +67,7 @@ const Dropdown = ({ classname, options, selectedValue, onSelect }) => {
   };
 
   const handleDropdownClick = () => {
+    inputRef.current.focus();
     updateDropdownOptions(query);
     setDropdownOpen(true);
   };
@@ -75,8 +80,8 @@ const Dropdown = ({ classname, options, selectedValue, onSelect }) => {
             <div
               key={`${index}-${item.name}`}
               className={
-                'dropdown__options ' +
-                (item.selected ? 'dropdown__options--disabled' : '')
+                "dropdown__options " +
+                (item.selected ? "dropdown__options--disabled" : "")
               }
               onClick={(event) => handleSelect(event, item)}
             >
@@ -102,10 +107,11 @@ const Dropdown = ({ classname, options, selectedValue, onSelect }) => {
       <div
         className={
           `dropdown__container ` +
-          (isDropdownOpen ? 'dropdown__container--focus' : '')
+          (isDropdownOpen ? "dropdown__container--focus" : "")
         }
       >
         <input
+          ref={inputRef}
           id={`searchableDropdown-input-${classname}`}
           type="text"
           placeholder="Search planets"
