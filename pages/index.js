@@ -1,3 +1,5 @@
+import React from "react";
+
 // Next
 import Head from "next/head";
 

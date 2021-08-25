@@ -1,3 +1,6 @@
+// React
+import React, { useState } from "react";
+
 // Global Styles
 import "../styles/globals.css";
 
@@ -10,9 +13,6 @@ import "../components/falcone/falcone.css";
 import "../components/footer/footer.css";
 import "../components/header/header.css";
 import "../components/button/button.css";
-
-// React
-import { useState } from "react";
 
 // Store
 import { DataProvider } from "../store/store";

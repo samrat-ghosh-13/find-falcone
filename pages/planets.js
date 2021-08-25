@@ -1,10 +1,10 @@
+// React
+import React, { useEffect } from "react";
+
 // Next
 import Head from "next/head";
 import Image from "next/image";
 import { useRouter } from "next/router";
-
-// React
-import { useEffect } from "react";
 
 // Store Context
 import { useDataContext } from "../store/store";
