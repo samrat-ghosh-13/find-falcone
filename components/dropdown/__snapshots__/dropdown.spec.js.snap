@@ -1,0 +1,24 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Test Dropdown component Case 1: Dropdown Component Renders Correctly (Snapshot) 1`] = `
+<div
+  className="dropdown first"
+  data-testid="searchableDropdown-first"
+  id="searchableDropdown-first"
+  onClick={[Function]}
+>
+  <div
+    className="dropdown__container "
+  >
+    <input
+      className="dropdown__container__input"
+      data-testid="searchableDropdown-input-first"
+      id="searchableDropdown-input-first"
+      onChange={[Function]}
+      placeholder="Search planets"
+      type="text"
+      value={Object {}}
+    />
+  </div>
+</div>
+`;

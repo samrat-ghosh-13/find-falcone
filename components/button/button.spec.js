@@ -55,10 +55,10 @@ describe("Test Button component", () => {
   });
 
   // Case 3: Checks the number of times button is clicked
-  it("Case 3: Checks the number of times button is clicked", () => {
+  it("Case 3: Checks the number of times button is clicked", async () => {
     const { getByTestId, getByText } = render(<ButtonWrapper />);
-    fireEvent.click(getByTestId("button"));
-    fireEvent.click(getByTestId("button"));
+    await fireEvent.click(getByTestId("button"));
+    await fireEvent.click(getByTestId("button"));
     expect(
       getByText("Click to increase: 2", { exact: true })
     ).toBeInTheDocument();

@@ -83,10 +83,17 @@ const Dropdown = ({ classname, options, selectedValue, onSelect }) => {
                 "dropdown__options " +
                 (item.selected ? "dropdown__options--disabled" : "")
               }
+              data-testid={`searchableDropdown-input-${classname}-options-option-${index}`}
               onClick={(event) => handleSelect(event, item)}
             >
-              <div className="dropdown__options__option">
-                <p className="dropdown__options__option__content">
+              <div
+                className="dropdown__options__option"
+                data-testid={`searchableDropdown-input-${classname}-options-option-${index}-div`}
+              >
+                <p
+                  className="dropdown__options__option__content"
+                  data-testid={`searchableDropdown-input-${classname}-options-option-${index}-div-text`}
+                >
                   {item.name}
                 </p>
               </div>
@@ -103,6 +110,7 @@ const Dropdown = ({ classname, options, selectedValue, onSelect }) => {
       ref={dropdownRef}
       className={`dropdown ${classname}`}
       onClick={() => handleDropdownClick()}
+      data-testid={`searchableDropdown-${classname}`}
     >
       <div
         className={
@@ -113,6 +121,7 @@ const Dropdown = ({ classname, options, selectedValue, onSelect }) => {
         <input
           ref={inputRef}
           id={`searchableDropdown-input-${classname}`}
+          data-testid={`searchableDropdown-input-${classname}`}
           type="text"
           placeholder="Search planets"
           className="dropdown__container__input"
@@ -121,7 +130,10 @@ const Dropdown = ({ classname, options, selectedValue, onSelect }) => {
         />
       </div>
       {isDropdownOpen && (
-        <div className="dropdown__options__container">
+        <div
+          className="dropdown__options__container"
+          data-testid={`searchableDropdown-input-${classname}-options`}
+        >
           {updatedOptions.length === 0 ? (
             <div className="dropdown__options">No planets found</div>
           ) : (

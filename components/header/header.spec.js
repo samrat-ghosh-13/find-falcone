@@ -37,18 +37,18 @@ describe("Test Header component", () => {
     const { getByText } = render(<Header buttons={headerButtons} />);
     expect(getByText("Finding Falcone", { exact: true })).toBeInTheDocument();
   });
-  it("Case 3: Checks the planets button click redirects to the correct route or not", () => {
+  it("Case 3: Checks the planets button on Header Component click redirects to the correct route or not", async () => {
     const { getByText } = render(<Header buttons={headerButtons} />);
-    fireEvent.click(getByText("Planets"));
+    await fireEvent.click(getByText("Planets"));
     expect(router).toMatchObject({
       asPath: "/planets",
       pathname: "/planets",
       query: {},
     });
   });
-  it("Case 4: Checks the vehicles button click redirects to the correct route or not", () => {
+  it("Case 4: Checks the vehicles button on Header Component click redirects to the correct route or not", async () => {
     const { getByText } = render(<Header buttons={headerButtons} />);
-    fireEvent.click(getByText("Vehicles"));
+    await fireEvent.click(getByText("Vehicles"));
     expect(router).toMatchObject({
       asPath: "/vehicles",
       pathname: "/vehicles",
