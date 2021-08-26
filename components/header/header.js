@@ -1,5 +1,3 @@
-import React from "react";
-
 // Next
 import Image from "next/image";
 import router from "next/router";

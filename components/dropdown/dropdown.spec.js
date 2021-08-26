@@ -1,6 +1,3 @@
-// react
-import React from "react";
-
 // component
 import Dropdown from "./dropdown";
 

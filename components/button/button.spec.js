@@ -1,5 +1,5 @@
 // react
-import React, { useState } from "react";
+import { useState } from "react";
 
 // component
 import Button from "./button";

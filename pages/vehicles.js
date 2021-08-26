@@ -1,5 +1,5 @@
 // React
-import React, { useEffect } from "react";
+import { useEffect } from "react";
 
 // Next
 import Head from "next/head";

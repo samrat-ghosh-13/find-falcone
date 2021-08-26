@@ -1,10 +1,10 @@
 // React
-import React, { useEffect } from "react";
-import { useRouter } from "next/router";
+import { useEffect } from "react";
 
 // Next
 import Head from "next/head";
 import Image from "next/image";
+import { useRouter } from "next/router";
 
 // Store Context
 import { useDataContext } from "../store/store";
@@ -19,6 +19,16 @@ import { toast } from "react-toastify";
 import { getPlanetImagePath } from "../configs/constants";
 
 export default function Result() {
+  const headerButtons = [
+    {
+      name: "Planets",
+      path: "/planets",
+    },
+    {
+      name: "Vehicles",
+      path: "/vehicles",
+    },
+  ];
   const router = useRouter();
   const { planet_name, time } = useDataContext();
 
@@ -38,7 +48,7 @@ export default function Result() {
         <link rel="icon" href="/favicon.ico" />
       </Head>
       <main className="app">
-        <Header />
+        <Header buttons={headerButtons} />
         <div className="app__result">
           <div className="app__result__header__contents">
             <h4>

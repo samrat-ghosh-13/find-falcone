@@ -1,5 +1,5 @@
 // React
-import React, { useState } from "react";
+import { useState } from "react";
 
 // Global Styles
 import "../styles/globals.css";

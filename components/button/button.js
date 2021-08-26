@@ -1,6 +1,3 @@
-// react
-import React from "react";
-
 // prop-types
 import { node, string, bool, func, oneOf } from "prop-types";
 

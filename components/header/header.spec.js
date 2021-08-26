@@ -1,6 +1,3 @@
-// react
-import React from "react";
-
 // next
 import router from "next/router";
 
