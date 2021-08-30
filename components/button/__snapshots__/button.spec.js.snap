@@ -2,7 +2,7 @@
 
 exports[`Test Button component Case 1: Button Component Renders Correctly 1`] = `
 <button
-  className=" button    button--medium"
+  className="button    button--medium"
   data-testid="button"
   disabled={false}
   onClick={[Function]}

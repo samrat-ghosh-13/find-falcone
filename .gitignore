@@ -15,6 +15,9 @@
 # production
 /build
 
+# cypress videos
+/cypress/videos/
+
 # misc
 .DS_Store
 *.pem

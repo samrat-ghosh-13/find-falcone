@@ -14,7 +14,7 @@ const Header = ({ buttons }) => {
       return (
         <Button
           key={button.name}
-          classname="app__header__contents__right__cta"
+          classname={`app__header__contents__right__cta app__header__contents__right__cta--${button.name}`}
           handleClick={() => router.push(button.path)}
         >
           {button.name}
