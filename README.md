@@ -1,9 +1,11 @@
-## Welcome
+# Welcome to Geektrust's Front End Developer challenge by Samrat Ghosh
+
 Welcome to the solution of Geektrust's Front End Developer challenge - Find Falcone available at [https://find-falcone.vercel.app/](https://find-falcone.vercel.app/). This is a [Next.js](https://nextjs.org/) project bootstrapped with [`create-next-app`](https://github.com/vercel/next.js/tree/canary/packages/create-next-app).
 
 ## Getting Started
 
 - Install the dependencies
+
 ```bash
 npm install
 # or
