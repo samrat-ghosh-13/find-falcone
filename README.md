@@ -3,7 +3,14 @@ Welcome to the solution of Geektrust's Front End Developer challenge - Find Falc
 
 ## Getting Started
 
-First, run the development server:
+- Install the dependencies
+```bash
+npm install
+# or
+yarn install
+```
+
+- First, run the development server:
 
 ```bash
 npm run dev
