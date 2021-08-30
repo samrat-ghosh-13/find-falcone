@@ -1,6 +1,6 @@
 // Next
 import Image from "next/image";
-import router from "next/router";
+import { useRouter } from "next/router";
 
 // Components
 import Button from "../button/button";
@@ -9,6 +9,7 @@ import Button from "../button/button";
 import { arrayOf, object } from "prop-types";
 
 const Header = ({ buttons }) => {
+  const router = useRouter();
   const getButtons = () => {
     return buttons.map((button) => {
       return (

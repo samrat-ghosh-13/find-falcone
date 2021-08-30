@@ -1,24 +1,22 @@
-// component
+import { mount } from "@cypress/react"; // or @cypress/vue
 import Footer from "./footer";
 
-// jest renderer
-import renderer from "react-test-renderer";
-
-// testing library react
-import { render } from "@testing-library/react";
-import "@testing-library/jest-dom/extend-expect";
-
-describe("Test Footer component", () => {
-  it("Case 1: Footer Component Renders Correctly (Snapshot)", () => {
-    const headerComponentTree = renderer.create(<Footer />).toJSON();
-    expect(headerComponentTree).toMatchSnapshot();
-  });
-  it("Case 2: Checks the Footer text is correct or not", () => {
-    const { queryByTestId } = render(<Footer />);
-    expect(
-      queryByTestId("app__footer__contents", { exact: true }).innerHTML
-    ).toBe(
-      'Made with <span class="app__footer__contents__logo">❤️</span> by<a href="https://www.linkedin.com/in/samratat/" target="_blank" rel="noreferrer">Samrat Ghosh</a>© 2021'
+describe("Unit Testing of Footer Component", () => {
+  it("renders Footer", () => {
+    mount(<Footer />);
+    cy.get(".app__footer").should("exist");
+    cy.get(".app__footer__contents").should("exist");
+    cy.get(".app__footer__contents__logo").should("exist");
+    cy.get(".app__footer__contents").contains(
+      "Made with ❤️ bySamrat Ghosh© 2021"
     );
+    cy.get(".app__footer__contents__logo").contains("❤️");
+  });
+  it("redirects user to the linkedIn profile", () => {
+    mount(<Footer />);
+    cy.get(".app__footer").should("exist");
+    cy.get(".app__footer__contents").should("exist");
+    cy.get(".app__footer__contents a").should("exist");
+    cy.get(".app__footer__contents a").click();
   });
 });

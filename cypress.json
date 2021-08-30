@@ -1,4 +1,6 @@
 {
   "projectId": "x2n38h",
-  "baseUrl": "http://localhost:3000"
+  "baseUrl": "http://localhost:3000",
+  "testFiles": "**/*.spec.{js,jsx}",
+  "componentFolder": "components/"
 }

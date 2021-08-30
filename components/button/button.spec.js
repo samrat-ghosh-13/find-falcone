@@ -1,74 +1,55 @@
-// react
-import { useState } from "react";
-
-// component
+import { mount } from "@cypress/react"; // or @cypress/vue
 import Button from "./button";
 
-// jest renderer
-import renderer from "react-test-renderer";
-
-// testing library react
-import { render, fireEvent } from "@testing-library/react";
-import "@testing-library/jest-dom/extend-expect";
-
-/**
- * @name ButtonWrapper
- * @details use case of button component
- * @returns button component with the updated count
- */
-const ButtonWrapper = () => {
-  const [count, setCounter] = useState(0);
-
-  const handleButtonClick = () => {
-    setCounter(count + 1);
-  };
-
-  return (
-    <Button handleClick={handleButtonClick}>Click to increase: {count}</Button>
-  );
-};
-
-describe("Test Button component", () => {
-  // Case 1: Button Renders properly or not using snapshot testing
-  it("Case 1: Button Component Renders Correctly", () => {
-    const handleButtonClick = () => {
-      console.log("Button Clicked");
-    };
-
-    const buttonComponentTree = renderer
-      .create(
-        <ButtonWrapper handleClick={handleButtonClick}>Test</ButtonWrapper>
-      )
-      .toJSON();
-    expect(buttonComponentTree).toMatchSnapshot();
+describe("Unit Testing of Button Component", () => {
+  it("renders button", () => {
+    mount(<Button classname="unit__testing">Testing</Button>);
+    cy.get(".button").should("exist");
+    cy.get(".button__text").should("exist");
+    cy.get(".button__text").contains("Testing");
   });
 
-  // Case 2: Checks the Button data-testid is correct or not
-  it("Case 2: Checks the Button data-testId is correct or not", () => {
-    const handleButtonClick = () => {
-      console.log("Button Clicked");
-    };
-    const { getByTestId } = render(
-      <ButtonWrapper handleClick={handleButtonClick}>Test</ButtonWrapper>
+  it("renders disabled button", () => {
+    mount(
+      <Button classname="unit__testing" disabled={true}>
+        Testing
+      </Button>
     );
-    expect(getByTestId("button")).toBeInTheDocument();
+    cy.get(".button").should("exist");
+    cy.get(".button--disabled").should("exist");
+    cy.get(".button__text").should("exist");
   });
 
-  // Case 3: Checks the number of times button is clicked
-  it("Case 3: Checks the number of times button is clicked", async () => {
-    const { getByTestId, getByText } = render(<ButtonWrapper />);
-    await fireEvent.click(getByTestId("button"));
-    await fireEvent.click(getByTestId("button"));
-    expect(
-      getByText("Click to increase: 2", { exact: true })
-    ).toBeInTheDocument();
+  it("renders data-testid button", () => {
+    mount(
+      <Button classname="unit__testing" disabled={true}>
+        Testing
+      </Button>
+    );
+    cy.get(".button").should("exist");
+    cy.get('[data-testid="button"]').should("exist");
+    cy.get(".button__text").should("exist");
   });
 
-  // Case 4: Checks the Button Component Name is correct or Not
-  it("Case 4: Checks the Button Component Children is correct or Not", () => {
-    const { getByText } = render(<ButtonWrapper />);
-    expect(
-      getByText("Click to increase: 0", { exact: true })
-    ).toBeInTheDocument();
+  it("renders button clicks", () => {
+    mount(
+      <Button classname="unit__testing" disabled={true}>
+        Testing
+      </Button>
+    );
+    cy.get(".button").should("exist");
+    cy.get(".button__text").should("exist");
+    cy.get(".button__text").click();
+  });
+
+  it("renders button classname", () => {
+    mount(
+      <Button classname="unit__testing" disabled={true}>
+        Testing
+      </Button>
+    );
+    cy.get(".button").should("exist");
+    cy.get(".unit__testing").should("exist");
+    cy.get(".unit__testing").contains("Testing");
   });
 });
