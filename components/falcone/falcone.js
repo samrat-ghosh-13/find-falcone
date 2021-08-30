@@ -38,25 +38,45 @@ const Falcone = () => {
   const [selectedVehicles, setSelectedVehicles] = useState(selectedStructure);
   const [timeTaken, setTimeTaken] = useState(0);
 
+  const fetchPlanets = async () => {
+    const { data: planets } = await axios(getPlanets());
+    toast.success("Successfully retrived planets!");
+    // Updating State
+    setPlanets(
+      planets.map((planet) => {
+        return {
+          ...planet,
+          selected: false,
+        };
+      })
+    );
+    // Updating Context
+    data.planets = planets;
+  };
+
+  const fetchVehicles = async () => {
+    let vehicles = {};
+    const { data: vehiclesData } = await axios(getVehicles());
+    toast.success("Successfully retrived vehicles!");
+    // Updating Context
+    data.vehicles = vehiclesData;
+    // Updating the state
+    vehiclesData.forEach((vehicle) => {
+      vehicles = {
+        ...vehicles,
+        [`${vehicle.name}`]: {
+          ...vehicle,
+          selected_count: 0,
+        },
+      };
+    });
+    setVehicles(vehicles);
+  };
+
   // useEffect triggers after initial load to fetch the details
   useEffect(() => {
     // Fetching Planets
     try {
-      const fetchPlanets = async () => {
-        const { data: planets } = await axios(getPlanets());
-        toast.success("Successfully retrived planets!");
-        // Updating State
-        setPlanets(
-          planets.map((planet) => {
-            return {
-              ...planet,
-              selected: false,
-            };
-          })
-        );
-        // Updating Context
-        data.planets = planets;
-      };
       fetchPlanets();
     } catch (error) {
       console.error(error);
@@ -64,24 +84,6 @@ const Falcone = () => {
     }
     // Fetching Vehicles
     try {
-      const fetchVehicles = async () => {
-        let vehicles = {};
-        const { data: vehiclesData } = await axios(getVehicles());
-        toast.success("Successfully retrived vehicles!");
-        // Updating Context
-        data.vehicles = vehiclesData;
-        // Updating the state
-        vehiclesData.forEach((vehicle) => {
-          vehicles = {
-            ...vehicles,
-            [`${vehicle.name}`]: {
-              ...vehicle,
-              selected_count: 0,
-            },
-          };
-        });
-        setVehicles(vehicles);
-      };
       fetchVehicles();
     } catch (error) {
       console.error(error);
@@ -217,7 +219,7 @@ const Falcone = () => {
   const getRadioOptions = (classname) => {
     return (
       <div className="app__falcone__contents__card__dropdown__c">
-        {Object.values(vehicles).map((vehicle) => {
+        {Object.values(vehicles).map((vehicle, index) => {
           return (
             <div
               key={`${vehicle.name}-${classname}`}
@@ -234,6 +236,7 @@ const Falcone = () => {
                   (vehicle.total_no - vehicle.selected_count === 0 ||
                     selectedPlanets[classname].distance > vehicle.max_distance)
                 }
+                data-testid={`radio-input-${classname}-${index}`}
                 onClick={() => onRadioSelect(classname, vehicle)}
               />
               <label
@@ -267,12 +270,12 @@ const Falcone = () => {
           <p>Total time to reach all the planets : {timeTaken}</p>
         </div>
         <div className="app__falcone__header__button">
-          <Button handleClick={() => router.reload()}>Reset</Button>
-          <Button handleClick={() => triggerFindFalcone()}>Find Falcone</Button>
+          <Button className="app__falcone__header__button__reset" handleClick={() => router.reload()}>Reset</Button>
+          <Button className="app__falcone__header__button__find" handleClick={() => triggerFindFalcone()}>Find Falcone</Button>
         </div>
       </div>
       <div className="app__falcone__contents">
-        <div className="app__falcone__contents__card">
+        <div className="app__falcone__contents__card app__falcone__contents__card--first">
           <div className="app__falcone__contents__card__dropdown">
             <Dropdown
               classname="first"
@@ -303,7 +306,7 @@ const Falcone = () => {
             ""
           )}
         </div>
-        <div className="app__falcone__contents__card">
+        <div className="app__falcone__contents__card app__falcone__contents__card--second">
           <div className="app__falcone__contents__card__dropdown">
             <Dropdown
               classname="second"
@@ -333,7 +336,7 @@ const Falcone = () => {
             ""
           )}
         </div>
-        <div className="app__falcone__contents__card">
+        <div className="app__falcone__contents__card app__falcone__contents__card--third">
           <div className="app__falcone__contents__card__dropdown">
             <Dropdown
               classname="third"
@@ -363,7 +366,7 @@ const Falcone = () => {
             ""
           )}
         </div>
-        <div className="app__falcone__contents__card">
+        <div className="app__falcone__contents__card app__falcone__contents__card--fourth">
           <div className="app__falcone__contents__card__dropdown">
             <Dropdown
               classname="fourth"

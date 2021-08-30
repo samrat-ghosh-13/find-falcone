@@ -73,7 +73,7 @@ export default function Result() {
                 ""
               )}
             </div>
-            <Button handleClick={() => router.push("/")}>Start Again</Button>
+            <Button className="app__result__header__contents__button" handleClick={() => router.push("/")}>Start Again</Button>
           </div>
         </div>
         <Footer />
