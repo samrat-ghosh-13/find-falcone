@@ -1,132 +1,82 @@
-// // component
-// import Dropdown from "./dropdown";
+import { mount } from "@cypress/react"; // or @cypress/vue
+import Dropdown from "./dropdown";
 
-// // jest renderer
-// import renderer from "react-test-renderer";
+describe("Unit Testing of Dropdown Component", () => {
+  const planets = [
+    { name: "Donlon", distance: 100, selected: false },
+    { name: "Enchai", distance: 200, selected: false },
+    { name: "Jebing", distance: 300, selected: false },
+    { name: "Sapir", distance: 400, selected: false },
+    { name: "Lerbin", distance: 500, selected: false },
+    { name: "Pingasor", distance: 600, selected: false },
+  ];
 
-// // testing library react
-// import { render, fireEvent } from "@testing-library/react";
-// import "@testing-library/jest-dom/extend-expect";
+  let selectedPlanets = {};
 
-// describe("Test Dropdown component", () => {
-//   const planets = [
-//     { name: "Donlon", distance: 100, selected: false },
-//     { name: "Enchai", distance: 200, selected: false },
-//     { name: "Jebing", distance: 300, selected: false },
-//     { name: "Sapir", distance: 400, selected: false },
-//     { name: "Lerbin", distance: 500, selected: false },
-//     { name: "Pingasor", distance: 600, selected: false },
-//   ];
+  const onSelect = (type, value) => {
+    selectedPlanets = {
+      ...selectedPlanets,
+      [type]: value,
+    };
+  };
 
-//   let selectedPlanet = {};
+  it("renders dropdown", () => {
+    mount(
+      <Dropdown
+        classname="first"
+        options={planets}
+        selectedValue={selectedPlanets.first}
+        onSelect={onSelect}
+      />
+    );
+    cy.get(".dropdown").should("exist");
+    cy.get(".dropdown.first").should("exist");
+    cy.get(".dropdown__container").should("exist");
+    cy.get(".dropdown__container__input").should("exist");
+    cy.get(".dropdown__container__input").click();
+    cy.get(".dropdown__options__container").should("exist");
+  });
 
-//   const onSelect = (type, value) => {
-//     selectedPlanet = {
-//       ...selectedPlanet,
-//       [type]: value,
-//     };
-//   };
+  it("on click of the option the option is selected in the dropdown", () => {
+    mount(
+      <Dropdown
+        classname="first"
+        options={planets}
+        selectedValue={selectedPlanets.first}
+        onSelect={onSelect}
+      />
+    );
+    cy.get(".dropdown").should("exist");
+    cy.get(".dropdown.first").should("exist");
+    cy.get(".dropdown__container").should("exist");
+    cy.get(".dropdown__container__input").should("exist");
+    cy.get(".dropdown__container__input").click();
+    cy.get(".dropdown__options__container").should("exist");
+    cy.get(
+      '[data-testid="searchableDropdown-input-first-options-option-5-div-text"]'
+    ).click();
+    cy.get("#searchableDropdown-input-first").should("have.value", "Pingasor");
+  });
 
-//   it("Case 1: Dropdown Component Renders Correctly (Snapshot)", () => {
-//     const headerComponentTree = renderer
-//       .create(
-//         <Dropdown
-//           classname="first"
-//           options={planets}
-//           selectedValue={selectedPlanet}
-//           onSelect={onSelect}
-//         />
-//       )
-//       .toJSON();
-//     expect(headerComponentTree).toMatchSnapshot();
-//   });
-//   it("Case 2: Checks the placeholder text is correct or not", () => {
-//     const { queryByPlaceholderText } = render(
-//       <Dropdown
-//         classname="first"
-//         options={planets}
-//         selectedValue={selectedPlanet}
-//         onSelect={onSelect}
-//       />
-//     );
-//     expect(
-//       queryByPlaceholderText("Search planets", { exact: true })
-//     ).toBeInTheDocument();
-//   });
-//   it("Case 3: Checks on click the dropdown opens or not", async () => {
-//     const { getByTestId } = render(
-//       <Dropdown
-//         classname="first"
-//         options={planets}
-//         selectedValue={selectedPlanet}
-//         onSelect={onSelect}
-//       />
-//     );
-//     await fireEvent.click(getByTestId("searchableDropdown-first"));
-//     expect(
-//       getByTestId("searchableDropdown-input-first-options", { exact: true })
-//     ).toBeInTheDocument();
-//   });
-//   it("Case 4: Checks on click the dropdown input opens the dropdown or not", async () => {
-//     const { getByTestId } = render(
-//       <Dropdown
-//         classname="first"
-//         options={planets}
-//         selectedValue={selectedPlanet}
-//         onSelect={onSelect}
-//       />
-//     );
-//     await fireEvent.click(getByTestId("searchableDropdown-input-first"));
-//     expect(
-//       getByTestId("searchableDropdown-input-first-options", { exact: true })
-//     ).toBeInTheDocument();
-//   });
-//   it("Case 5: Checks on click the dropdown input opens and renders the correct options or not", async () => {
-//     const { getByTestId, getByText } = render(
-//       <Dropdown
-//         classname="first"
-//         options={planets}
-//         selectedValue={selectedPlanet}
-//         onSelect={onSelect}
-//       />
-//     );
-//     await fireEvent.click(getByTestId("searchableDropdown-input-first"));
-//     expect(
-//       getByTestId("searchableDropdown-input-first-options", { exact: true })
-//     ).toBeInTheDocument();
-//     expect(getByText("Donlon")).toBeInTheDocument();
-//     expect(getByText("Enchai")).toBeInTheDocument();
-//     expect(getByText("Jebing")).toBeInTheDocument();
-//     expect(getByText("Sapir")).toBeInTheDocument();
-//     expect(getByText("Lerbin")).toBeInTheDocument();
-//     expect(getByText("Pingasor")).toBeInTheDocument();
-//   });
-//   it("Case 6: Checks on click the dropdown input options callback updates the state to the parent correctly or not", async () => {
-//     const { getByTestId, getByText } = render(
-//       <Dropdown
-//         classname="first"
-//         options={planets}
-//         selectedValue={selectedPlanet}
-//         onSelect={onSelect}
-//       />
-//     );
-//     await fireEvent.click(getByTestId("searchableDropdown-input-first"));
-//     expect(
-//       getByTestId("searchableDropdown-input-first-options", { exact: true })
-//     ).toBeInTheDocument();
-//     expect(getByText("Donlon")).toBeInTheDocument();
-//     expect(getByText("Enchai")).toBeInTheDocument();
-//     expect(getByText("Jebing")).toBeInTheDocument();
-//     expect(getByText("Sapir")).toBeInTheDocument();
-//     expect(getByText("Lerbin")).toBeInTheDocument();
-//     expect(getByText("Pingasor")).toBeInTheDocument();
-//     await fireEvent.click(getByText("Donlon"));
-//     expect(selectedPlanet).toStrictEqual({
-//       first: {
-//         name: "Donlon",
-//         distance: 100,
-//         selected: false,
-//       },
-//     });
-//   });
-// });
+  it("on input of characters unique option is selected in the dropdown", () => {
+    mount(
+      <Dropdown
+        classname="first"
+        options={planets}
+        selectedValue={selectedPlanets.first}
+        onSelect={onSelect}
+      />
+    );
+    cy.get(".dropdown").should("exist");
+    cy.get(".dropdown.first").should("exist");
+    cy.get(".dropdown__container").should("exist");
+    cy.get(".dropdown__container__input").should("exist");
+    cy.get(".dropdown__container__input").click();
+    cy.get(".dropdown__container__input").click();
+    cy.get(".dropdown__container__input").click();
+    cy.get(".dropdown__options__container").should("exist");
+    cy.get("#searchableDropdown-input-first")
+      .invoke("val", "Pingasor")
+      .should("have.value", "Pingasor");
+  });
+});

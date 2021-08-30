@@ -14,7 +14,7 @@ const Dropdown = ({ classname, options, selectedValue, onSelect }) => {
   const [updatedOptions, setUpdatedOptions] = useState(options);
 
   useEffect(() => {
-    setQuery(selectedValue.name || "");
+    setQuery(selectedValue?.name || "");
     setUpdatedOptions(options);
   }, [options, selectedValue]);
 
