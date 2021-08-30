@@ -38,6 +38,7 @@ const Falcone = () => {
   const [selectedVehicles, setSelectedVehicles] = useState(selectedStructure);
   const [timeTaken, setTimeTaken] = useState(0);
 
+  // methods for fetching the planets
   const fetchPlanets = async () => {
     const { data: planets } = await axios(getPlanets());
     toast.success("Successfully retrived planets!");
@@ -54,6 +55,7 @@ const Falcone = () => {
     data.planets = planets;
   };
 
+  // methods for fetching the vehicles
   const fetchVehicles = async () => {
     let vehicles = {};
     const { data: vehiclesData } = await axios(getVehicles());
@@ -270,8 +272,8 @@ const Falcone = () => {
           <p>Total time to reach all the planets : {timeTaken}</p>
         </div>
         <div className="app__falcone__header__button">
-          <Button className="app__falcone__header__button__reset" handleClick={() => router.reload()}>Reset</Button>
-          <Button className="app__falcone__header__button__find" handleClick={() => triggerFindFalcone()}>Find Falcone</Button>
+          <Button classname="app__falcone__header__button__reset" handleClick={() => router.reload()}>Reset</Button>
+          <Button classname="app__falcone__header__button__find" handleClick={() => triggerFindFalcone()}>Find Falcone</Button>
         </div>
       </div>
       <div className="app__falcone__contents">

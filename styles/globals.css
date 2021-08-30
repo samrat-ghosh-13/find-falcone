@@ -39,15 +39,6 @@ p {
 .app__result__header__contents p {
   margin-top: 16px;
 }
-.app__result__header__contents button {
-  background: transparent;
-  border: 1px solid #000;
-  border-radius: 4px;
-  padding: 8px;
-  color: #000;
-  cursor: pointer;
-  margin-top: 16px;
-}
 .app__result__header__contents__icon {
   margin-top: 16px;
 }

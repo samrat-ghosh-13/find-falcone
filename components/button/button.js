@@ -24,7 +24,7 @@ const Button = ({
 }) => (
   <button
     data-testid="button"
-    className={` button ${classname} ${appearance} ${
+    className={`button ${classname} ${appearance} ${
       disabled ? "button--disabled" : ""
     } ${size}`}
     disabled={disabled}

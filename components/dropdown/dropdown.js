@@ -29,7 +29,7 @@ const Dropdown = ({ classname, options, selectedValue, onSelect }) => {
           return option.name
             ?.toString()
             .toLowerCase()
-            .match(value.toLowerCase());
+            .match(value.toLowerCase()) && !option.selected;
         })
       : options;
     // Triggers while removing characters from dropdown
