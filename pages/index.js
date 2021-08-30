@@ -4,7 +4,7 @@ import Head from "next/head";
 // Components
 import Header from "../components/header/header";
 import Footer from "../components/footer/footer";
-import Falcone from "../components/falcone/falcone";
+import Falcone from "../layouts/falcone/falcone";
 import { ToastContainer } from "react-toastify";
 
 export default function Home() {

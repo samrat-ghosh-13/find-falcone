@@ -7,10 +7,10 @@ import axios from "axios";
 // Next
 import Image from "next/image";
 import { useRouter } from "next/router";
-import Button from "../button/button";
 
 // Components
-import Dropdown from "../dropdown/dropdown";
+import Dropdown from "../../components/dropdown/dropdown";
+import Button from "../../components/button/button";
 import { toast } from "react-toastify";
 
 // Configs
