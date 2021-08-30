@@ -1,18 +1,18 @@
 // React
 import { useState } from "react";
 
-// Global Styles
-import "../styles/globals.css";
-
 // React Toastify Default Styles
 import "react-toastify/dist/ReactToastify.css";
 
+// Global Styles
+import "../styles/globals.css";
+
 // Component Styles
-import "../components/dropdown/dropdown.css";
-import "../components/falcone/falcone.css";
-import "../components/footer/footer.css";
-import "../components/header/header.css";
-import "../components/button/button.css";
+import "../styles/dropdown.css";
+import "../styles/footer.css";
+import "../styles/header.css";
+import "../styles/button.css";
+import "../styles/falcone.css";
 
 // Store
 import { DataProvider } from "../store/store";
